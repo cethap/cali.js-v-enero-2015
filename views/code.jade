@@ -1,0 +1,24 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/lib/codemirror.css')
+    link(rel='stylesheet', href='/theme/monokai.css')
+    script(src='/lib/codemirror.js')
+    script(src='/mode/'+tipo)
+    script(src='/mode/htmlmixed/htmlmixed.js')
+    script(src='/addon/selection/active-line.js')
+    script(src='/addon/edit/matchbrackets.js')
+  body
+    style
+        .CodeMirror {border: 1px solid black; font-size:16px}
+    form
+        textarea(id="code", name="code")=code           
+    script
+          var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            styleActiveLine: true,
+            matchBrackets: true
+          });
+
+          editor.setOption("theme", "monokai");

@@ -1,0 +1,49 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    title Presentación
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='css/ratchet.css')
+    script(src='js/ratchet.js')
+    script(src='/js/jquery.js')
+    script(src='/socket.io/socket.io.js')
+    script(src="http://cdn.peerjs.com/0.3/peer.js")
+    script(src='/js/p.js')
+    style
+      .list a{
+          margin: 5px auto !important;
+      }     
+      .active{
+          background-color: #ccc;
+      }      
+      .content_padded{
+          margin-top: 52px;
+      }
+
+  body
+    video#v(autoplay='autoplay')
+    //
+       Make sure all your bars are the first things in your <body> 
+    header.bar-title
+        h1.title Presentación
+    //
+       Wrap all non-bar HTML in the .content div (this is actually what scrolls) 
+    .content      
+      br
+      ul.list.inset
+        li
+          a(href="#", data-href='#/1')
+              | Presentación
+        li
+          a(href="#currentModal", data-href='#/2')#CurrentModalButton
+              | Raspberry          
+        li
+          a(href="#webrtcModal", data-href='#/3')#webrtcModalButton
+              | GPIO   
+        li
+          a(href="#webrtcModal", data-href='#/4')#webrtcModalButton
+              | Bosquejo Implementación   
+        li
+          a(href="#webrtcModal", data-href='#/5')#webrtcModalButton
+              | Tecnologias  

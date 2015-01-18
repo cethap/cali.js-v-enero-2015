@@ -1,0 +1,135 @@
+!!! 5
+html.no-js.demo-4(lang='en')
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title WebRTC y Socket.io
+    meta(name='description', content='Bookblock: A Content Flip Plugin - Demo 4')
+    meta(name='keywords', content='javascript, jquery, plugin, css3, flip, page, 3d, booklet, book, perspective')
+    meta(name='author', content='Codrops')
+    link(rel='shortcut icon', href='../favicon.ico')
+    link(rel='stylesheet', type='text/css', href='css/default.css')
+    link(rel='stylesheet', type='text/css', href='css/bookblock.css')
+    //
+       custom demo style 
+    link(rel='stylesheet', type='text/css', href='css/demo4.css')
+    script(src='js/modernizr.custom.js')
+    script(src='/socket.io/socket.io.js')
+    script(src="http://cdn.peerjs.com/0.3/peer.js")
+  body
+    .container
+      .bb-custom-wrapper
+        #bb-bookblock.bb-bookblock
+          .bb-item
+            .bb-custom-firstpage
+              h1
+                | Proyecto "Simon dice" con raspberry pi y protoboard
+                span Cesar Tapasco
+                span Jeffry Lenis
+              img.MyIcon2(src='images/logo.png', alt='')
+            .bb-custom-side
+              img.MyIcon(src='images/pi.png', alt='')
+          .bb-item
+            .bb-custom-side
+              h1
+                | Raspberry
+                span Introducción
+                img.MyIcon2(src='images/logo.png', alt='')
+            .bb-custom-side
+              p
+                |Raspberry Pi es un ordenador de placa reducida o (placa única) (SBC) de bajo coste, desarrollado en Reino Unido por la Fundación Raspberry Pi, con el objetivo de estimular la enseñanza de ciencias de la computación en las escuelas.
+          .bb-item
+            .bb-custom-side
+              h1
+                | Gpio
+            .bb-custom-side
+              img.MyIcon(src='images/gpiol.png', alt='')
+              p
+                |es un pin genérico en un chip, cuyo comportamiento (incluyendo si es un pin de entrada o salida) se puede controlar (programar) por el usuario en tiempo de ejecución.
+
+          .bb-item
+            .bb-custom-side
+              h1
+                | Bosquejo Implementación
+            .bb-custom-side
+              img.MyIcon(src='images/gpio.jpg', alt='')
+          .bb-item
+            .bb-custom-side 
+              img.MyIcon(src='images/node.png', alt='')
+              img.MyIcon(src='images/npm.png', alt='')
+            .bb-custom-side
+              |var express = require('express');
+              br
+              |var router = express.Router();
+              br
+              |var Gpio = require('onoff').Gpio,
+              br
+              br
+              |    led = [
+              br
+              |      {writeSync: function(){} },
+              br
+              |      new Gpio(18,'out'),
+              br
+              |      new Gpio(23,'out'),
+              br
+              |      new Gpio(24,'out'),
+              br
+              |      new Gpio(25,'out')
+              br
+              |    ];
+              br
+              br
+              |/* GET home page. */
+              br
+              |router.get('/', function(req, res) {
+              br
+              |  res.render('index', { title: 'Express' });
+              br
+              |});
+              br
+              br
+              |/* GET home page. */
+              br
+              |router.get('/on/:led', function(req, res) {
+              br
+              |  var _l = req.params.led;
+              br
+              |  _l = parseInt(_l,10) || 0;
+              br
+              |  led[_l].writeSync(1);
+              br
+              |  res.send({LedStatus:"on"});
+              br
+              |});
+              br
+              br
+              |router.get('/off/:led', function(req, res) {
+              br
+              |  var _l = req.params.led;
+              br
+              |  _l = parseInt(_l,10) || 0;
+              br
+              |  led[_l].writeSync(0);
+              br
+              |  res.send({LedStatus:"off"});
+              br
+              |});
+              br
+              br
+              |module.exports = router;
+
+
+
+        nav
+          a#bb-nav-first.bb-custom-icon.bb-custom-icon-first(href='#') First page
+          a#bb-nav-prev.bb-custom-icon.bb-custom-icon-arrow-left(href='#') Previous
+          a#bb-nav-next.bb-custom-icon.bb-custom-icon-arrow-right(href='#') Next
+          a#bb-nav-last.bb-custom-icon.bb-custom-icon-last(href='#') Last page
+    //
+       /container 
+    script(src='js/jquery.js')
+    script(src='js/jquerypp.custom.js')
+    script(src='js/jquery.bookblock.js')
+    script(src='js/f.js')
