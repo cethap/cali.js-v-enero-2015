@@ -24,104 +24,38 @@ head
           .bb-item
             .bb-custom-firstpage
               h1
-                | Proyecto "Simon dice" con raspberry pi y protoboard
+                | NW (Node-webkit)
                 span Cesar Tapasco
-                span Jeffry Lenis
-              img.MyIcon2(src='images/logo.png', alt='')
+              img.MyIcon2(src='images/nw.png', alt='')
             .bb-custom-side
-              img.MyIcon(src='images/pi.png', alt='')
-          .bb-item
-            .bb-custom-side
-              h1
-                | Raspberry
-                span Introducción
-                img.MyIcon2(src='images/logo.png', alt='')
-            .bb-custom-side
-              p
-                |Raspberry Pi es un ordenador de placa reducida o (placa única) (SBC) de bajo coste, desarrollado en Reino Unido por la Fundación Raspberry Pi, con el objetivo de estimular la enseñanza de ciencias de la computación en las escuelas.
-          .bb-item
-            .bb-custom-side
-              h1
-                | Gpio
-            .bb-custom-side
-              img.MyIcon(src='images/gpiol.png', alt='')
-              p
-                |es un pin genérico en un chip, cuyo comportamiento (incluyendo si es un pin de entrada o salida) se puede controlar (programar) por el usuario en tiempo de ejecución.
-
-          .bb-item
-            .bb-custom-side
-              h1
-                | Bosquejo Implementación
-            .bb-custom-side
-              img.MyIcon(src='images/gpio.jpg', alt='')
-          .bb-item
-            .bb-custom-side 
               img.MyIcon(src='images/node.png', alt='')
-              img.MyIcon(src='images/npm.png', alt='')
+              img(src='images/chrome.png', alt='')
+          .bb-item
             .bb-custom-side
-              |var express = require('express');
-              br
-              |var router = express.Router();
-              br
-              |var Gpio = require('onoff').Gpio,
-              br
-              br
-              |    led = [
-              br
-              |      {writeSync: function(){} },
-              br
-              |      new Gpio(18,'out'),
-              br
-              |      new Gpio(23,'out'),
-              br
-              |      new Gpio(24,'out'),
-              br
-              |      new Gpio(25,'out')
-              br
-              |    ];
-              br
-              br
-              |/* GET home page. */
-              br
-              |router.get('/', function(req, res) {
-              br
-              |  res.render('index', { title: 'Express' });
-              br
-              |});
-              br
-              br
-              |/* GET home page. */
-              br
-              |router.get('/on/:led', function(req, res) {
-              br
-              |  var _l = req.params.led;
-              br
-              |  _l = parseInt(_l,10) || 0;
-              br
-              |  led[_l].writeSync(1);
-              br
-              |  res.send({LedStatus:"on"});
-              br
-              |});
-              br
-              br
-              |router.get('/off/:led', function(req, res) {
-              br
-              |  var _l = req.params.led;
-              br
-              |  _l = parseInt(_l,10) || 0;
-              br
-              |  led[_l].writeSync(0);
-              br
-              |  res.send({LedStatus:"off"});
-              br
-              |});
-              br
-              br
-              |module.exports = router;
-
-
-
+              h1
+                | Node-webkit
+                span Introducción
+                img.MyIcon2(src='images/nw.png', alt='')
+            .bb-custom-side
+              p
+                |node-webkit es una app runtime basada en Chromium y node.js. Puedes escribir aplicaciones nativas en html y javascript con node-webkit. Tambien puedes llamar  modulos de Node.js directamente desde el DOM y habilitar una nueva forma de escribir aplicaciones nativas con  todas las tecnologias web.
+                br                
+                br                
+                |Fue creado por Intel Open Source Technology Center.
+          .bb-item
+            .bb-custom-side
+              h1
+                | Quick Start (HTML)
+            .bb-custom-side
+              p Crear index.html
+                img(src='images/code.png', alt='')
+          .bb-item
+            .bb-custom-side
+              h1
+                | Quick Start (JSON)
+            .bb-custom-side
+              p Crear package.json
+                img(src='images/p.png', alt='')
         nav
           a#bb-nav-first.bb-custom-icon.bb-custom-icon-first(href='#') First page
           a#bb-nav-prev.bb-custom-icon.bb-custom-icon-arrow-left(href='#') Previous

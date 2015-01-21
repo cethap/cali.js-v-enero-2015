@@ -3,15 +3,15 @@ var socket = io.connect(location.origin);
 
 (function($){
 
-	var peer = new Peer({host: 'wbrtc.herokuapp.com', port: 80, path: '/myapp'});
-	var inVideoStado = false;
-	peer.on('open', function(id) {
-		console.log('My peer ID is: ' + id);
-	});
+	// var peer = new Peer({host: 'wbrtc.herokuapp.com', port: 80, path: '/myapp'});
+	// var inVideoStado = false;
+	// peer.on('open', function(id) {
+	// 	console.log('My peer ID is: ' + id);
+	// });
 
 	$(function(){
 		//Evento click de los items
-		$(".list a, .bar-title a").click(function(e){
+		$("a").click(function(e){
 			e.preventDefault();
 			var el = $(this);
 
@@ -34,21 +34,21 @@ var socket = io.connect(location.origin);
 		});
 
 
-		$(".videoChat").click(function(e){
-			if(!inVideoStado){			
-				navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-				navigator.getUserMedia({video: true, audio: true}, function(stream) {
-					var call = peer.call('ty7rfai7afgeewmi', stream);
-					call.on('stream', function(remoteStream) {
-						// Show stream in some <video> element.
-						//$("#v").prop('src', URL.createObjectURL(remoteStream));
-					});
-				}, function(err) {
-					console.log('Failed to get local stream' ,err);
-				});
-				inVideoStado = true;
-			}
-		});
+		// $(".videoChat").click(function(e){
+		// 	if(!inVideoStado){			
+		// 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+		// 		navigator.getUserMedia({video: true, audio: true}, function(stream) {
+		// 			var call = peer.call('ty7rfai7afgeewmi', stream);
+		// 			call.on('stream', function(remoteStream) {
+		// 				// Show stream in some <video> element.
+		// 				//$("#v").prop('src', URL.createObjectURL(remoteStream));
+		// 			});
+		// 		}, function(err) {
+		// 			console.log('Failed to get local stream' ,err);
+		// 		});
+		// 		inVideoStado = true;
+		// 	}
+		// });
 
 	});
 })(jQuery);
